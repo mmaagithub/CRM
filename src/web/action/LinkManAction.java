@@ -41,7 +41,6 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		return "list";
 	}
 	
-
 	public String add() throws Exception {
 		//1 调用Service
 		lms.save(linkMan);
@@ -50,7 +49,9 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 	}
 	
 	public String delete() throws Exception {
-		lms.delete(linkMan);
+		//1 调用Service,查询LinkMan
+		LinkMan lm = lms.getById(linkMan.getLkm_id());
+		lms.delete(lm);
 		return "toList";
 	}
 
@@ -60,7 +61,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		LinkMan lm = lms.getById(linkMan.getLkm_id());
 		//2 将查询的Linkman对象放入request域,转发到添加页面
 		ActionContext.getContext().put("linkMan", lm);
-		return "add";
+		return "edit";
 	}
 
 

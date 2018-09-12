@@ -29,7 +29,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 //		 return user;
 //		 }
 //		 });
-
+		
+		
 		DetachedCriteria dc = DetachedCriteria.forClass(User.class);
 		dc.add(Restrictions.eq("user_code", userCode));
 		List<User> list = (List<User>) getHibernateTemplate().findByCriteria(dc);

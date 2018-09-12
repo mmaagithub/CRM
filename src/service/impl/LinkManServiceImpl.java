@@ -2,7 +2,10 @@ package service.impl;
 
 import java.util.List;
 
+import org.hibernate.StaleObjectStateException;
 import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.orm.hibernate4.HibernateOptimisticLockingFailureException;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import dao.LinkManDao;
 import domain.Customer;

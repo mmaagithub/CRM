@@ -62,11 +62,15 @@ P {
 								</TR>
 								<TR>
 									<TD height=35 align="right">
-										当前用户：<s:property value="#user.user_name"/>
+								<!-- 	取值时application和session需要带上名字，request不需要。 -->
+									<s:if test="#session.user==null">
+										<a href="${pageContext.request.contextPath }/login.jsp" >登录</a>
+									</s:if>
+									<s:else>
+									当前用户：<s:property value="#session.user.user_name"/>
 										&nbsp;&nbsp;&nbsp;&nbsp;
-										<!-- <A href="#" target=_top><FONT color=red>修改密码</FONT></A>
-										&nbsp;&nbsp;&nbsp;&nbsp;
-										<A href="#" target=_top><FONT color=red>安全退出</FONT></A> -->
+										<A href="${pageContext.request.contextPath }/UserAction_logOut " ><FONT color=red>安全退出</FONT></A> 
+									</s:else>
 									</TD>
 								</TR>
 							</TBODY>

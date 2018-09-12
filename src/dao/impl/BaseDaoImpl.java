@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import dao.BaseDao;
@@ -15,7 +16,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 	private Class clazz;//用于接收运行期泛型类型
 	
 	public BaseDaoImpl() {
-		//获得当前类型的带有泛型类型的父类
+		//获得当前类型的带有泛型类型的父类,ParameterizedType表示参数化类型
 		ParameterizedType ptClass = (ParameterizedType) this.getClass().getGenericSuperclass();
 		//获得运行期的泛型类型
 		clazz = (Class) ptClass.getActualTypeArguments()[0];
@@ -76,8 +77,8 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 	}
 
 	@Override
-	public void saveOrUpdate(T t) {System.out.println("t=="+t);
-		getHibernateTemplate().saveOrUpdate(t);
+	public void saveOrUpdate(T t) {
+			getHibernateTemplate().saveOrUpdate(t);
 	}
 
 }

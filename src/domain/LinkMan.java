@@ -28,7 +28,7 @@ public class LinkMan {
 	private String lkm_memo;
 	private String lkm_position;
 	
-	//表达多对一关系
+	//只需要获取客户名，表达单向多对一关系，
 	private Customer customer ;
 	
 	//----------------------------------------------

@@ -16,8 +16,7 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/LinkManAction_add"
-		method=post>
+		action="${pageContext.request.contextPath }/LinkManAction_add" method=post>
 		
 		<input type="hidden" name="lkm_id" value="<s:property value="#linkMan.lkm_id"/>">
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -62,8 +61,8 @@
 								</td>
 								<td>联系人性别：</td>
 								<td>
-								<input type="radio" value="1" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='1'?'checked':''" />>男
-								<input type="radio" value="2" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='2'?'checked':''" />>女
+								<input type="radio" value="男" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='1'?'checked':''" />>男
+								<input type="radio" value="女" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='2'?'checked':''" />>女
 								</td>
 							</TR>
 							<TR>

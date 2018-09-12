@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="domain" >
-	<class name="SaleVisit" table="sale_visit" >
+	<class name="SaleVisit" table="sale_visit" optimistic-lock="all" dynamic-update="true">
 		<id name="visit_id"  >
 			<generator class="uuid"></generator>
 		</id>
@@ -15,6 +15,7 @@
 		
 		<!-- 多对一 -->
 		<many-to-one name="customer" column="visit_cust_id" class="Customer" ></many-to-one>
+		
 		<!-- 多对一 -->
 		<many-to-one name="user" column="visit_user_id" class="User" ></many-to-one>
 	</class>

@@ -60,7 +60,5 @@ public class CustomerServiceImpl implements CustomerService{
 	public void delete(Customer customer) {
 		cd.delete(customer);
 	}
-	
-
 
 }

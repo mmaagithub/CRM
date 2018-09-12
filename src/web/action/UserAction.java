@@ -11,7 +11,7 @@ import domain.User;
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private User user = new User();
 	private UserService us;
-
+							
 	public void setUs(UserService us) {
 		this.us = us;
 	}
@@ -30,6 +30,11 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			ActionContext.getContext().put("error", e.getMessage());
 			return "regist";
 		}
+		return "toLogin";
+	}
+
+	public String logOut() throws Exception {
+		ActionContext.getContext().getSession().clear();
 		return "toLogin";
 	}
 

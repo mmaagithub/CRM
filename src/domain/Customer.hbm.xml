@@ -3,9 +3,8 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="domain" >
-	<class name="Customer" table="cst_customer" >
+	<class name="Customer" table="cst_customer" optimistic-lock="all" dynamic-update="true">
 		<id name="cust_id"  >
-			<!-- generator:主键生成策略(明天讲) -->
 			<generator class="native"></generator>
 		</id>
 		<property name="cust_name" column="cust_name" ></property>
@@ -22,10 +21,13 @@
 		<many-to-one name="cust_level" column="cust_level" class="BaseDict" ></many-to-one>
 		
 		<!-- 一对多 -->
-		<set name="saleVisits" inverse="true" cascade="delete">
+		<set name="saleVisits" cascade="all" inverse="true">
 			<key column="visit_cust_id" ></key>
 			<one-to-many class="SaleVisit" />
 		</set>
-	
+	<set name="linkMan" cascade="all" inverse="true">
+			<key column="lkm_cust_id" ></key>
+			<one-to-many class="LinkMan" />
+		</set>
 	</class>
 </hibernate-mapping>

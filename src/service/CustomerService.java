@@ -22,4 +22,5 @@ public interface CustomerService {
 	List<Object[]> getSourceCount();
 
 	void delete(Customer customer);
+
 }

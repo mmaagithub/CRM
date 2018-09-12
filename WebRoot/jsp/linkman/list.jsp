@@ -105,6 +105,7 @@
 												<TR
 													style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
 													<TD>联系人名称</TD>
+													<td>所属客户</td>
 													<TD>性别</TD>
 													<TD>办公电话</TD>
 													<TD>手机</TD>
@@ -114,13 +115,14 @@
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD><s:property value="#linkMan.lkm_name" /></TD>
+													<td><s:property value="#linkMan.customer.cust_name"/>
 													<TD><s:property value="#linkMan.lkm_gender" /></TD>
 													<TD><s:property value="#linkMan.lkm_phone" /></TD>
 													<TD><s:property value="#linkMan.lkm_mobile" /></TD>
 													<TD>
 													<a href="${pageContext.request.contextPath }/LinkManAction_toEdit?lkm_id=<s:property value="#linkMan.lkm_id" />">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/linkmanAction_delete?lkm_id=<s:property value="#linkMan.lkm_id" />">删除</a>
+													<a href="${pageContext.request.contextPath }/LinkManAction_delete?lkm_id=<s:property value="#linkMan.lkm_id" />">删除</a>
 													</TD>
 												</TR>
 												</s:iterator>
